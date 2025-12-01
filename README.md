@@ -89,7 +89,7 @@ Wrappers antigos continuam em `scripts/` (ex.: `scripts/run_one_target.py`, `scr
 
 
 ## Dados Brutos (TPF/FITS e TICs)
-📦 Dados Brutos do TESS (TPF/FITS)
+Dados Brutos do TESS (TPF/FITS)
 
 Este repositório não inclui os arquivos brutos do TESS devido ao tamanho extremamente elevado dos dados. Os Target Pixel Files (TPF) e arquivos FITS associados podem ultrapassar 300 MB por objeto, excedendo o limite máximo permitido pelo GitHub (100 MB por arquivo).
 
