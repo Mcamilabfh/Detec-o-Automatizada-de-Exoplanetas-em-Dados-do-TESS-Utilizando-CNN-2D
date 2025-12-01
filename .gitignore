@@ -1,0 +1,30 @@
+# Ignorar todos os dados brutos do TESS
+data/raw/
+data/raw/**
+**/mastDownload/
+**/TIC_*/
+
+# FITS (qualquer formato)
+*.fits
+*.fit
+*.fits.fz
+
+# Artefatos grandes
+artifacts/
+artifacts/**
+
+# Ignorar tudo que seja maior ou gerado
+**/*.npy
+**/*.npz
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Ambientes
+.env
+.venv/
+.ipynb_checkpoints/

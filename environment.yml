@@ -1,0 +1,18 @@
+name: projeto-toi
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy>=1.23
+  - pandas>=2.0
+  - matplotlib>=3.7
+  - astropy>=5.0
+  - astroquery>=0.4.7
+  - requests>=2.31
+  - scikit-learn>=1.3
+  - pytorch>=2.1
+  - pip
+  - pip:
+      - lightkurve>=2.3.0
+      - tqdm>=4.66

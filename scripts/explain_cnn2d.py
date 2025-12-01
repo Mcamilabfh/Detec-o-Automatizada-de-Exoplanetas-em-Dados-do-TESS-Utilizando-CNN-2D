@@ -1,0 +1,8 @@
+"""Compat wrapper para gerar Grad-CAM."""
+from __future__ import annotations
+
+from projeto_toi.pipeline.explain import cli
+
+
+if __name__ == "__main__":
+    cli()

@@ -1,0 +1,27 @@
+# treino com split por TIC/setor
+python scripts/train_cnn2d.py \
+  --data data/windows \
+  --outdir runs/exp_01 \
+  --epochs 50 --batch_size 32 --lr 1e-4 --val_ratio 0.2 --seed 42 --patience 8
+
+# avaliar e salvar preds/figs
+python scripts/eval_cnn2d.py \
+  --data data/windows \
+  --ckpt runs/exp_01/best.pt \
+  --outdir runs/exp_01/eval \
+  --batch_size 64
+
+# explicar (Grad-CAM) top-K
+python scripts/explain_cnn2d.py \
+  --data data/windows \
+  --ckpt runs/exp_01/best.pt \
+  --preds runs/exp_01/eval/preds.csv \
+  --outdir runs/exp_01/explain \
+  --top_k 12
+
+# ranquear combinando proba_pos + penalização por centróide
+python scripts/rank_with_centroid.py \
+  --preds runs/exp_01/eval/preds.csv \
+  --centroid_csv csv/on_target_report.csv \
+  --out runs/exp_01/ranking.csv \
+  --tau 0.7
