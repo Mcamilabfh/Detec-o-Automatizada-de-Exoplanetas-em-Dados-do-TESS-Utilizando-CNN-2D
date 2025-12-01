@@ -86,3 +86,52 @@ pytest tests -q
 
 ## Compatibilidade
 Wrappers antigos continuam em `scripts/` (ex.: `scripts/run_one_target.py`, `scripts/train_cnn2d.py`) e redirecionam para os modulos acima. Prefira usar os CLIs via `python -m projeto_toi.cli.<comando>`.
+
+
+## Dados Brutos (TPF/FITS e TICs)
+📦 Dados Brutos do TESS (TPF/FITS)
+
+Este repositório não inclui os arquivos brutos do TESS devido ao tamanho extremamente elevado dos dados. Os Target Pixel Files (TPF) e arquivos FITS associados podem ultrapassar 300 MB por objeto, excedendo o limite máximo permitido pelo GitHub (100 MB por arquivo).
+
+Para manter o projeto leve, acessível e compatível com versionamento, todos os arquivos FITS e pastas das TICs foram movidos para o Google Drive, onde podem ser baixados separadamente quando necessário.
+
+🔗 Acesso aos dados
+
+Os dados brutos utilizados neste trabalho estão disponíveis no Google Drive:
+
+https://drive.google.com/drive/folders/1PZbD6R6dYtRPoNh5EWZlaPODRxuTA8Qz?usp=sharing
+
+
+Pastas completas de cada TIC utilizada no estudo
+Arquivos FITS (TPF, light curves, cutouts, mastDownload, etc.)
+Setores individuais de observação
+Versões “fast cadence” quando aplicável
+
+## Estrutura esperada localmente
+
+Ao baixar os dados, coloque-os na seguinte estrutura:
+
+data/
+  raw/
+    raw_data/
+      TIC_XXXXXXXX/
+        sector_XX/
+          mastDownload/
+            ... arquivos .fits
+
+
+O código do pipeline detecta automaticamente essa estrutura ao executar o pré-processamento.
+
+## Como executar o pipeline com os dados brutos
+
+Baixar o conteúdo do Drive
+
+Colocar dentro de data/raw/raw_data/
+
+Garantir que o .gitignore continue ignorando essa pasta
+
+Executar o pipeline normalmente:
+
+python run_pipeline.py \
+    --input data/raw/raw_data \
+    --output artifacts/results
